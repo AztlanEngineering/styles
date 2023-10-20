@@ -6,7 +6,7 @@
     "compile": "sass src/main.scss dist/main.css",
     "filesize": "du --apparent-size -sh ${1}",
     "lint:stylelint": "stylelint src/**/*.scss --rd --rdd --risd --color --formatter verbose",
-    "lint:stylelint:fix":"npm run lint:stylelint -- --fix"
+    "lint:stylelint:fix": "npm run lint:stylelint -- --fix"
   },
   "devDependencies": {
     "@aztlan/stylelint-config": "^0.0.1-alpha.0",
