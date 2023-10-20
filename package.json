@@ -1,0 +1,14 @@
+{
+  "name": "@aztlan/styles",
+  "private": true,
+  "workspaces":[
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "@advl",
+  "license": "MPLv2",
+  "version":"0.0.1-alpha.0"
+}
