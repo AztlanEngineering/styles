@@ -1,5 +1,6 @@
 {
   "name": "@aztlan/styles",
+  "version": "0.0.1-alpha.0",
   "private": true,
   "workspaces": [
     "packages/*",
@@ -10,8 +11,8 @@
   },
   "author": "@advl",
   "license": "MPLv2",
-  "version": "0.0.1-alpha.0",
   "devDependencies": {
-    "lerna": "^7.4.1"
+    "lerna": "^7.4.1",
+    "jsonlint": "^1.6.3"
   }
 }
