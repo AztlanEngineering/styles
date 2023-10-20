@@ -7,21 +7,21 @@ $md-lg:1400px;
 
 /* The following variables can be configured when using the library */
 
-/* Custom properties names */
-$default-columns-name:"columns" !default;
-$default-column-width-name:"column-width" !default;
-$default-gap-name:"gap" !default;
-
-/* Class names */
-$default-prefix:"";
-$md-prefix:"#{$default-prefix}md-";
+/* Custom property and class names */
+$default-columns-property:"columns" !default;
+$default-column-width-property:"column-width" !default;
+$default-gap-property:"gap" !default;
+$default-start-class:"start" !default;
+$default-span-class:"span" !default;
+$default-class-prefix:"" !default;
+$md-class-prefix:"#{$default-class-prefix}md-" !default;
 
 /* Number of columns */
-$default-columns:8;
-$md-columns:14;
+$default-columns:8 !default;
+$md-columns:14 !default;
 
 /* Grid gap */
-$default-gap:1rem;
+$default-gap:1rem !default;
 
 /* Library definitions start here */
 
@@ -31,26 +31,26 @@ $md-column-width:
   calc((100vw - (#{$md-columns} + 1) * #{$default-gap}) / #{$md-columns});
 
 $manual-column-width:
-  calc(var(--#{$default-column-width-name}) * var(--#{$default-columns-name}) + var(--#{$default-gap-name}) * (var(--#{$default-columns-name}) - 1));
+  calc(var(--#{$default-column-width-property}) * var(--#{$default-columns-property}) + var(--#{$default-gap-property}) * (var(--#{$default-columns-property}) - 1));
 
 @mixin main() {
   @include mixins.media($from:$sm-md) {
     :root {
-      --#{$default-columns-name}: #{$md-columns};
-      --#{$default-column-width-name}: #{$md-column-width};
+      --#{$default-columns-property}: #{$md-columns};
+      --#{$default-column-width-property}: #{$md-column-width};
     }
   }
 
   :root {
-    --#{$default-columns-name}: #{$default-columns};
-    --#{$default-column-width-name}: #{$default-column-width};
-    --#{$default-gap-name}: #{$default-gap};
+    --#{$default-columns-property}: #{$default-columns};
+    --#{$default-column-width-property}: #{$default-column-width};
+    --#{$default-gap-property}: #{$default-gap};
   }
 
   .grid {
     display: grid;
-    gap: var(--#{$default-gap-name});
-    grid-template-columns: repeat(var(--#{$default-columns-name}), 1fr);
+    gap: var(--#{$default-gap-property});
+    grid-template-columns: repeat(var(--#{$default-columns-property}), 1fr);
   }
 
   .container {
@@ -59,7 +59,7 @@ $manual-column-width:
 
   .section {
     &.padded {
-      padding: 0 var(--#{$default-gap-name});
+      padding: 0 var(--#{$default-gap-property});
     }
   }
 
@@ -82,22 +82,22 @@ $manual-column-width:
   }
 
   @for $i from 1 through $default-columns {
-    .#{$default-prefix}start-#{$i} {
+    .#{$default-class-prefix}#{$default-start-class}-#{$i} {
       grid-column-start: $i;
     }
-    .#{$default-prefix}span-#{$i} {
-      --#{$default-columns-name}: #{$i};
+    .#{$default-class-prefix}#{$default-span-class}-#{$i} {
+      --#{$default-columns-property}: #{$i};
       grid-column-end: span $i;
     }
   }
 
   @for $i from 1 through $md-columns {
     @include mixins.media($from:$sm-md) {
-      .#{$md-prefix}start-#{$i} {
+      .#{$md-class-prefix}#{$default-start-class}-#{$i} {
         grid-column-start: $i;
       }
-      .#{$md-prefix}span-#{$i} {
-        --#{$default-columns-name}: #{$i};
+      .#{$md-class-prefix}#{$default-span-class}-#{$i} {
+        --#{$default-columns-property}: #{$i};
         grid-column-end: span $i;
       }
     }
