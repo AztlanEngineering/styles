@@ -8,6 +8,10 @@
     "apps/*"
   ],
   "scripts": {
+    "release:prerelease": "./scripts/release.sh prerelease",
+    "release:patch": "./scripts/release.sh patch",
+    "release:minor": "./scripts/release.sh minor",  
+    "release:major": "./scripts/release.sh major",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
