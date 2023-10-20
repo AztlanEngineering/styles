@@ -1,6 +1,7 @@
 {
   "name": "@aztlan/styles",
   "version": "0.0.1-alpha.0",
+  "license": "MPLv2",
   "private": true,
   "workspaces": [
     "packages/*",
@@ -9,8 +10,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "@advl",
-  "license": "MPLv2",
   "devDependencies": {
     "lerna": "^7.4.1",
     "jsonlint": "^1.6.3"
