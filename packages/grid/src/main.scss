@@ -1,0 +1,89 @@
+@use "./mixins";
+
+$sm-md:800px;
+$md-lg:1400px;
+
+$default-prefix:"";
+$desktop-prefix:"md-#{$default-prefix}";
+$default-grid-columns:8;
+$desktop-grid-columns:14;
+$default-gap:1rem;
+
+$default-column-width:
+  calc((100vw - (#{$default-grid-columns} + 1) * #{$default-gap}) / #{$default-grid-columns});
+$desktop-column-width:
+  calc((100vw - (#{$desktop-grid-columns} + 1) * #{$default-gap}) / #{$desktop-grid-columns});
+
+$manual-column-width:
+  calc(var(--column-width) * var(--columns) + var(--gap) * (var(--columns) - 1));
+
+@mixin main() {
+    @include mixins.media($from:$sm-md) {
+        :root {
+            --columns: #{$desktop-grid-columns};
+            --column-width: #{$desktop-column-width};
+        }
+    }
+
+    :root {
+        --columns: #{$default-grid-columns};
+        --column-width: #{$default-column-width};
+        --gap: #{$default-gap};
+    }
+
+    .grid {
+        display: grid;
+        gap: var(--gap);
+        grid-template-columns: repeat(var(--columns), 1fr);
+    }
+
+    .container {
+        grid-column: 1/-1;
+    }
+
+    .section {
+        &.padded {
+            padding: 0 var(--gap);
+        }
+    }
+
+    .dense {
+        grid-auto-flow: row dense;
+    }
+
+    .manual {
+        min-width: $manual-column-width;
+        width: $manual-column-width;
+    }
+
+    .manual-mobile-only {
+        @include mixins.media($from:$sm-md) {
+            min-width: unset;
+            width: unset;
+        }
+        min-width: $manual-column-width;
+        width: $manual-column-width;
+    }
+
+    @for $i from 1 through $default-grid-columns {
+        .#{$default-prefix}start-#{$i} {
+            grid-column-start: $i;
+        }
+        .#{$default-prefix}span-#{$i} {
+            --columns: #{$i};
+            grid-column-end: span $i;
+        }
+    }
+
+    @for $i from 1 through $desktop-grid-columns {
+        @include mixins.media($from:$sm-md) {
+            .#{$desktop-prefix}start-#{$i} {
+                grid-column-start: $i;
+            }
+            .#{$desktop-prefix}span-#{$i} {
+                --columns: #{$i};
+                grid-column-end: span $i;
+            }
+        }
+    }
+}
