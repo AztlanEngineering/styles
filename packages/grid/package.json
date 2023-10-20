@@ -2,14 +2,21 @@
   "name": "@aztlan/grid",
   "version": "0.0.1-alpha.1",
   "license": "MPLv2",
+  "main": "dist/main.min.css",
   "scripts": {
-    "compile": "sass src/main.scss dist/main.css",
+    "compile": "sass src/main.scss dist/main.css && npm run filesize -- dist/main.css",
+    "minify": "postcss dist/main.css -o dist/main.min.css && npm run filesize -- dist/main.min.css",
+    "build": "npm run compile && npm run minify",
+    "prepare": "npm run build",
     "filesize": "du --apparent-size -sh ${1}",
     "lint:stylelint": "stylelint src/**/*.scss --rd --rdd --risd --color --formatter verbose",
     "lint:stylelint:fix": "npm run lint:stylelint -- --fix"
   },
   "devDependencies": {
     "@aztlan/stylelint-config": "^0.0.1-alpha.1",
+    "cssnano": "^6.0.1",
+    "postcss-cli": "^10.1.0",
+    "postcss-preset-env": "^9.2.0",
     "postcss-scss": "^4.0.9",
     "sass": "^1.69.4"
   }
