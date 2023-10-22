@@ -1,0 +1,6 @@
+@use "collections/colorschemes";
+@use "mixins";
+
+@include mixins.setters-from-map(colorschemes.$light-colorscheme);
+@include mixins.define-theme(colorschemes.$light-colorscheme, "ui-light", true);
+@include mixins.getters;

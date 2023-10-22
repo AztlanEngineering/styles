@@ -1,0 +1,166 @@
+@use "sass:map";
+
+$nuances-prefixes: (
+  "nuance1": "",
+  "nuance2": "hard",
+  "nuance3": "soft",
+  "nuance4": "on"
+);
+
+/* 1 - Palette transforms
+ *
+ * These functions compute the derived hard and soft nuances from the base color
+ * i
+ */
+
+$contrast-using-dark-text:#FFF !default;
+$contrast-using-light-text:#000 !default;
+
+$light-nuance-lighten-by:11% !default;
+$light-nuance-desaturate-by:9% !default;
+$dark-nuance-darken-by:11% !default;
+$dark-nuance-saturate-by:9% !default;
+$treshold-contrast-nuance:.69;
+
+@function dark-nuance(
+  $color,
+  $darken-by:$dark-nuance-darken-by,
+  $saturate-by:$dark-nuance-saturate-by,
+) {
+  @return saturate(darken($color, $darken-by), $saturate-by);
+}
+
+@function light-nuance(
+  $color,
+  $lighten-by:$light-nuance-lighten-by,
+  $desaturate-by:$light-nuance-desaturate-by,
+) {
+  @return desaturate(lighten($color, $lighten-by), $desaturate-by);
+}
+
+@function contrast-nuance($color, $dark-text:$contrast-using-dark-text, $light-text:$contrast-using-light-text) {
+  $count:red($color) + green($color) + blue($color);
+  $max:256 * 3 * $treshold-contrast-nuance;
+  @if $count < $max {
+    @return $light-text;
+  }
+  @else {
+    @return $dark-text;
+  }
+}
+
+
+//
+//
+// 2 / Setters and Getters factories
+//
+//
+
+
+// Change how the setters and getters are called
+$prefix-hover:"h" !default;
+//$prefixes-setters:"x", "y", "z" !default;
+$prefixes-setters:"x", "y" !default;
+//$registry-length:5 !default;
+
+$getter-background:"b-" !default;
+$getter-color-stroke:"c-" !default;
+$getter-border:"d-" !default;
+$getter-fill:"e-" !default;
+
+/*! from alphabet-scss */
+@mixin getter-factory($prefix,$var-name,$properties) {
+  .#{$prefix}#{$var-name} {
+    @each $property in $properties {
+      #{$property}: var(--#{$var-name});
+    }
+  }
+}
+
+
+@mixin define-variables($array, $nuances-names: $nuances-prefixes) {
+  @each $name, $colorlist in $array {
+    $nuance1:nth($colorlist, 1); // normal
+    $nuance2:nth($colorlist, 2); // hard
+    $nuance3:nth($colorlist, 3); // soft
+    $nuance4:nth($colorlist, 4); // contrast
+
+    --#{$name}: #{$nuance1};
+    --#{map.get($nuances-names, "nuance2")}-#{$name}: #{if($nuance2, $nuance2, dark-nuance($nuance1))};
+    --#{map.get($nuances-names, "nuance3")}-#{$name}: #{if($nuance3, $nuance3, light-nuance($nuance1))};
+    --#{map.get($nuances-names, "nuance4")}-#{$name}: #{if($nuance4, $nuance4, contrast-nuance($nuance1))};
+  }
+}
+
+@mixin define-theme($array, $theme-name, $default:false, $extras:null, $nuances-names: $nuances-prefixes) {
+  %payload {
+    @include define-variables($array, $nuances-names);
+    @if ($extras) {
+      @each $key, $value in $extras {
+        --#{$key}: #{$value};
+      }
+    }
+  }
+  @if $default == true {
+    :root,
+    .#{$theme-name} {
+      @extend %payload;
+    }
+  }
+  @else {
+    .#{$theme-name} {
+      @extend %payload;
+    }
+  }
+}
+
+
+//
+//Setters
+//
+//
+
+
+@mixin setters-from-map($array, $nuances-names: $nuances-prefixes) {
+  @each $name, $colorlist in $array {
+    @each $prefix in $prefixes-setters {
+      .#{$prefix}-#{$name},
+      .#{$prefix}#{$prefix-hover}-#{$name}:focus,
+      .#{$prefix}#{$prefix-hover}-#{$name}:hover {
+        --#{$prefix}: var(--#{$name});
+        --#{map.get($nuances-names, "nuance2")}-#{$prefix}: var(--#{map.get($nuances-names, "nuance2")}-#{$name});
+        --#{map.get($nuances-names, "nuance3")}-#{$prefix}: var(--#{map.get($nuances-names, "nuance3")}-#{$name});
+        --#{map.get($nuances-names, "nuance4")}-#{$prefix}: var(--#{map.get($nuances-names, "nuance4")}-#{$name});
+      }
+    }
+  }
+}
+
+//
+//Getters
+//
+//
+//
+
+@mixin getters($nuances-names: $nuances-prefixes) {
+  // $variants:"","light","dark","on";
+  $variants: $nuances-names;
+  @each $register in $prefixes-setters {
+    @each $name, $variant in $variants {
+      @if $variant == "" {
+        @include getter-factory($getter-background,$register,("background"));
+        @include getter-factory($getter-color-stroke, $register,("color", "stroke"));
+        @include getter-factory($getter-border,$register,("border-color"));
+        @include getter-factory($getter-fill,$register,("fill"));
+      }
+      @else {
+        $v:"#{$variant}-#{$register}";//"
+
+        @include getter-factory($getter-background,$v,("background"));
+        @include getter-factory($getter-color-stroke, $v,("color", "stroke"));
+        @include getter-factory($getter-fill,$v,("fill"));
+      }
+    }
+  }
+}
+
