@@ -1,19 +1,19 @@
 /* stylelint-disable scss/media-feature-value-dollar-variable -- We need to have a 1px delta */
 
 @mixin media($from:null, $to:null) {
-    @if $from and $to {
-        @media screen and (min-width: $from) and (max-width: $to - 1px) {
-            @content;
-        }
+  @if $from and $to {
+    @media screen and (min-width: $from) and (max-width: $to - 1px) {
+      @content;
     }
-    @else if $from {
-        @media screen and (min-width: $from) {
-            @content;
-        }
+  }
+  @else if $from {
+    @media screen and (min-width: $from) {
+      @content;
     }
-    @else if $to {
-        @media screen and (max-width: $to - 1px) {
-            @content;
-        }
+  }
+  @else if $to {
+    @media screen and (max-width: $to - 1px) {
+      @content;
     }
+  }
 }
