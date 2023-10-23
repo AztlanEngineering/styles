@@ -38,17 +38,8 @@ $colorscheme:(
   "accent2":[$base-accent2 null null null],
   "accent3":[$base-accent3 null null null],
   // Modals
-  "success":[var(--green) var(--dark-green) var(--light-green) var(--on-green)],
-  "warning":[var(--orange) var(--dark-orange) var(--light-orange) var(--on-orange)],
-  "error":[var(--red) var(--dark-red) var(--light-red) var(--on-red)],
-  // UI
-  "background":[var(--white) var(--dark-white) var(--light-white) var(--on-white)],
-  "paragraph":[var(--black) var(--dark-black) var(--light-black) var(--on-black)],
-  "heading":[var(--black) var(--dark-black) var(--light-black) var(--on-black)],
-  "subtitle":[var(--anchor) var(--dark-anchor) var(--light-anchor) var(--on-anchor)],
-  "metadata":[var(--grey) var(--dark-grey) var(--light-grey) var(--on-grey)],
-  "link":[var(--blue) var(--dark-blue) var(--light-blue) var(--on-blue)],
-  "navlink":[var(--primary) var(--dark-primary) var(--light-primary) var(--on-primary)]
+  //"success":[var(--green) var(--dark-green) var(--light-green) var(--on-green)],
+  //"warning":[var(--orange) var(--dark-orange) var(--light-orange) var(--on-orange)],
 );
 
 

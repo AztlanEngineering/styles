@@ -7,7 +7,7 @@
     "compile": "sass src/main.scss dist/main.css -I node_modules -I ../../node_modules && npm run filesize -- dist/main.css",
     "minify": "postcss dist/main.css -o dist/main.min.css && npm run filesize -- dist/main.min.css",
     "build": "npm run compile && npm run minify",
-    "iprepare": "npm run build",
+    "prepare": "npm run build",
     "filesize": "du --apparent-size -sh ${1}",
     "lint:stylelint": "stylelint src/**/*.scss --rd --rdd --risd --color --formatter verbose",
     "lint:stylelint:fix": "npm run lint:stylelint -- --fix"

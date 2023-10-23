@@ -13,7 +13,9 @@
     "release:minor": "./scripts/release.sh minor",  
     "release:major": "./scripts/release.sh major",
     "lerna":"lerna",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run lint:stylelint",
+    "lint:stylelint": "lerna run lint:stylelint",
+    "lint:stylelint:fix": "lerna run lint:stylelint:fix"
   },
   "devDependencies": {
     "lerna": "^7.4.1",
