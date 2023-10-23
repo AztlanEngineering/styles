@@ -1,6 +1,6 @@
 {
   "name": "@aztlan/grid",
-  "version": "0.0.1-alpha.8",
+  "version": "0.0.1-alpha.9",
   "license": "MPLv2",
   "main": "src/_main.scss",
   "scripts": {
