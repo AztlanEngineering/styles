@@ -103,16 +103,13 @@ $getter-fill:"e-" !default;
 
 @mixin define-theme($array, $theme-name, $default:false, $extras:null, $nuances-names: null) {
   $prefixes: if($nuances-names, $nuances-names, $nuances-prefixes);
-  @debug $default $theme-name;
   @if $default == true {
-    @debug "is-default" $theme-name;
     :root,
     .#{$theme-name} {
       @include define-theme-payload($array, $prefixes, $extras);
     }
   }
   @else {
-    @debug "isnt-default" $theme-name;
     .#{$theme-name} {
       @include define-theme-payload($array, $prefixes, $extras);
     }

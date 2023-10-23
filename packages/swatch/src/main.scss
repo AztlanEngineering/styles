@@ -23,10 +23,6 @@ $default-extras:(
     $is-first: $i == 1;
 
     $theme-extras: map.get($extras, $theme-name);
-    @debug THEME NAME $theme-name;
-    @debug PAYLOAD $theme-colorscheme;
-    @debug FIRST $is-first;
-    @debug EXTRAS $theme-extras;
     @if ($is-first) {
       @include mixins.setters-from-map($theme-colorscheme);
     }
