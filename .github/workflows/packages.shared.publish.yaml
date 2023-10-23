@@ -22,7 +22,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-        
       - name: setup .npmrc it uses NODE_AUTH_TOKEN
         uses: actions/setup-node@v2
         with:
@@ -38,19 +37,18 @@ jobs:
         run: |
           npm whoami
 
-      - name: Install dependencies                            
-        if: steps.cache-modules.outputs.cache-hit != 'true'
-        run: |
-          npm install
-
       - id: cache-modules
         uses: actions/cache@v3
         with:
           path: "**/node_modules"
           key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
 
+      - name: Install dependencies
+        run: |
+          npm install
+
       - name: Publish
-        #env:
-        #  NODE_TOKEN: ${{ secrets.NPM_TOKEN }}
+        env:
+          NODE_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           lerna publish from-package --yes
