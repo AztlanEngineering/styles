@@ -11,10 +11,7 @@
   },
   "devDependencies": {
     "@aztlan/stylelint-config": "^0.0.1-alpha.2",
-    "cssnano": "^6.0.1",
-    "postcss-cli": "^10.1.0",
-    "postcss-preset-env": "^9.2.0",
-    "postcss-scss": "^4.0.9",
+    "@aztlan/postcss-config": "^0.0.1-alpha.2",
     "sass": "^1.69.4"
   }
 }

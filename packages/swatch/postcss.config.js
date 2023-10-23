@@ -1,14 +1,3 @@
-module.exports = {
-  plugins: {                                       
-    //'css-mqpacker':{},
-    'postcss-preset-env':   
-    {       
-      stage: 2,
-    },      
-    'cssnano': {
-      'preset':[
-        'default',
-      ]     
-    }       
-  }         
-}
+const config = require("@aztlan/postcss-config")
+
+module.exports = config
