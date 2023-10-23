@@ -1,0 +1,145 @@
+@use "../functions";
+
+$default-font-class-prefix:"f" !default;
+$icons-font-class-prefix:"fi" !default;
+$font-var-prefix:font !default;
+
+$default-icons-name:"icons" !default;
+$default-icons-filename:"icons" !default;
+$default-icons-data-prefix:"icon" !default; //[data-icon]
+$default-icons-class-name:"icon" !default;
+$default-icons-margin:.35em !default;
+
+@mixin smoothing($value:light) {
+  @if $value == dark {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+  font-smooth: always;
+}
+
+@mixin class-define(
+  $name,
+  $class-prefix:$default-font-class-prefix,
+) {
+  .#{$class-prefix}-#{$name} {
+    font-family: var(--#{$font-var-prefix}-#{$name});
+  }
+}
+
+@mixin import($font-family, $woff, $weight:normal, $style:normal) {
+  @font-face {
+    font-display: fallback;
+    font-family: $font-family;
+    font-style: $style;
+    font-weight: $weight;
+    src:url("/#{$woff}.woff2") format("woff2"),
+      url("/#{$woff}.woff") format("woff");
+    @include smoothing(dark);
+  }
+}
+
+/* stylelint-disable declaration-no-important, font-weight-notation
+ -- This code comes from outside, and icon-fonts should be prioritary/special
+ */
+
+// There are three ways to use the icon font
+// Either use "font-family:icons"
+// Either use data-icon:'youricon'
+// Either use .icon with content
+
+@mixin icon-import(
+  $name:$default-icons-name,
+  $filename:$default-icons-filename,
+) {
+  @font-face {
+    font-family: $name;
+    font-style: normal;
+    font-weight: normal;
+    src:url("/#{$filename}.woff2") format("woff2"),
+      url("/#{$filename}.woff") format("woff");
+  }
+  [data-#{$default-icons-data-prefix}]::before {
+    margin-right: $default-icons-margin;
+  }
+
+  [data-#{$default-icons-data-prefix}]::before,
+  [data-#{$default-icons-data-prefix}-left]::before,
+  [data-#{$default-icons-data-prefix}-right]::after,
+  .#{$default-icons-class-name},
+  i.#{$default-icons-class-name} {
+    content: attr(data-#{$default-icons-data-prefix});
+    font-family: $name !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal !important;
+    font-variant: normal !important;
+    font-weight: normal !important;
+    line-height: 1;
+    speak: none;
+    text-transform: none !important;
+    vertical-align: middle;
+  }
+}
+
+
+/* stylelint-enable declaration-no-important, font-weight-notation */
+
+@mixin import-from-map($map) {
+  @each $variable, $submap in $map {
+    @if $variable != "icons" {
+      // Start by importing Normal fonts (icons fonts are not prioritary)
+      $font-family:unquote($variable);
+      @each $parameters-string, $filename in $submap {
+        $parameters:functions.str-split($parameters-string, "-");
+        $font-weight:unquote(nth($parameters, 1));
+        $font-style:unquote(nth($parameters, 2));
+        @include import($font-family, $filename, $font-weight, $font-style);
+      }
+    }
+    @else {
+      @each $icon-font-name, $icon-font-filename in $submap {
+        @if $icon-font-name == "default" {
+          @include icon-import($filename:$icon-font-filename);
+        }
+        @else {
+          @include icon-import(unquote($icon-font-name), $icon-font-filename);
+        }
+      }
+    }
+  }
+}
+
+/* stylelint-disable order/order -- vars required for mixin */
+@mixin root-definitions-from-map($map, $add-name:true) {
+  @each $variable, $font in $map {
+    @if $variable == "default" {
+      $default-font-var-name:$font;
+
+      --#{$font-var-prefix}-default: var(--#{$font-var-prefix}-#{$default-font-var-name});
+    }
+    @else {
+      @if $add-name != true {
+        $font-family:$font;
+
+        --#{$font-var-prefix}-#{$variable}: #{$font-family};
+      }
+      @else {
+        $rest-of-font-family:$font;
+
+        --#{$font-var-prefix}-#{$variable}: #{$variable}, #{$rest-of-font-family};
+      }
+    }
+  }
+}
+
+@mixin class-definitions-from-map($map) {
+  @each $variable, $font in $map {
+    @include class-define($variable);
+  }
+}
+/* stylelint-enable order/order */

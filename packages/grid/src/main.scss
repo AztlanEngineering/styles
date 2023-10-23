@@ -1,4 +1,4 @@
-@use "./mixins";
+@use "@aztlan/mixins";
 
 // TODO Cleanup and mixins
 $sm-md:800px;
@@ -31,77 +31,80 @@ $md-column-width:
   calc((100vw - (#{$md-columns} + 1) * #{$default-gap}) / #{$md-columns});
 
 $manual-column-width:
-  calc(var(--#{$default-column-width-property}) * var(--#{$default-columns-property}) + var(--#{$default-gap-property}) * (var(--#{$default-columns-property}) - 1));
+  calc(
+    var(--#{$default-column-width-property})
+    * var(--#{$default-columns-property})
+    + var(--#{$default-gap-property})
+    * (var(--#{$default-columns-property})
+    - 1
+  )
+);
 
-@mixin main() {
-  @include mixins.media($from:$sm-md) {
-    :root {
-      --#{$default-columns-property}: #{$md-columns};
-      --#{$default-column-width-property}: #{$md-column-width};
-    }
-  }
-
+@include mixins.media($from:$sm-md) {
   :root {
-    --#{$default-columns-property}: #{$default-columns};
-    --#{$default-column-width-property}: #{$default-column-width};
-    --#{$default-gap-property}: #{$default-gap};
+    --#{$default-columns-property}: #{$md-columns};
+    --#{$default-column-width-property}: #{$md-column-width};
   }
+}
 
-  .grid {
-    display: grid;
-    gap: var(--#{$default-gap-property});
-    grid-template-columns: repeat(var(--#{$default-columns-property}), 1fr);
+:root {
+  --#{$default-columns-property}: #{$default-columns};
+  --#{$default-column-width-property}: #{$default-column-width};
+  --#{$default-gap-property}: #{$default-gap};
+}
+
+.grid {
+  display: grid;
+  gap: var(--#{$default-gap-property});
+  grid-template-columns: repeat(var(--#{$default-columns-property}), 1fr);
+}
+
+.container {
+  grid-column: 1/-1;
+}
+
+.section {
+  &.padded {
+    padding: 0 var(--#{$default-gap-property});
   }
+}
 
-  .container {
-    grid-column: 1/-1;
+.dense {
+  grid-auto-flow: row dense;
+}
+
+.manual {
+  min-width: $manual-column-width;
+  width: $manual-column-width;
+}
+
+.manual-mobile-only {
+  @include mixins.media($from:$sm-md) {
+    min-width: unset;
+    width: unset;
   }
+  min-width: $manual-column-width;
+  width: $manual-column-width;
+}
 
-  .section {
-    &.padded {
-      padding: 0 var(--#{$default-gap-property});
-    }
+@for $i from 1 through $default-columns {
+  .#{$default-class-prefix}#{$default-start-class}-#{$i} {
+    grid-column-start: $i;
   }
-
-  .dense {
-    grid-auto-flow: row dense;
+  .#{$default-class-prefix}#{$default-span-class}-#{$i} {
+    --#{$default-columns-property}: #{$i};
+    grid-column-end: span $i;
   }
-
-  .manual {
-    min-width: $manual-column-width;
-    width: $manual-column-width;
-  }
-
-  .manual-mobile-only {
-    @include mixins.media($from:$sm-md) {
-      min-width: unset;
-      width: unset;
-    }
-    min-width: $manual-column-width;
-    width: $manual-column-width;
-  }
-
-  @for $i from 1 through $default-columns {
-    .#{$default-class-prefix}#{$default-start-class}-#{$i} {
+}
+@for $i from 1 through $md-columns {
+  @include mixins.media($from:$sm-md) {
+    .#{$md-class-prefix}#{$default-start-class}-#{$i} {
       grid-column-start: $i;
     }
-    .#{$default-class-prefix}#{$default-span-class}-#{$i} {
+    .#{$md-class-prefix}#{$default-span-class}-#{$i} {
       --#{$default-columns-property}: #{$i};
       grid-column-end: span $i;
     }
   }
-
-  @for $i from 1 through $md-columns {
-    @include mixins.media($from:$sm-md) {
-      .#{$md-class-prefix}#{$default-start-class}-#{$i} {
-        grid-column-start: $i;
-      }
-      .#{$md-class-prefix}#{$default-span-class}-#{$i} {
-        --#{$default-columns-property}: #{$i};
-        grid-column-end: span $i;
-      }
-    }
-  }
 }
 
-@include main;

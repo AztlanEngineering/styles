@@ -1,0 +1,26 @@
+$default-text-stroke-width:2px !default;
+$default-text-stroke-color:var(--x, var(--paragraph)) !default;
+
+@mixin text-stroke($width:$default-text-stroke-width, $color:$default-text-stroke-color) {
+  color: transparent;
+  -webkit-text-stroke: $text-stroke-width var(--x, var(--paragraph));
+  text-stroke: $text-stroke-width var(--x, var(--paragraph));
+}
+
+@mixin font-feature-full($onum:1, $kern:1, $liga:1, $dlig:1, $hlig:1, $clig:1) {
+  font-feature-settings:"onum" $onum,
+    "kern" $kern,
+    "liga" $liga,
+    "dlig" $dlig,
+    "hlig" $hlig,
+    "clig" $clig;
+}
+
+@mixin font-feature-oldstyle {
+  font-feature-settings: "onum" 1;
+}
+
+@mixin font-feature-small-caps {
+  font-feature-settings: "smcp" 1;
+}
+

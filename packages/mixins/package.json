@@ -1,13 +1,9 @@
 {
-  "name": "@aztlan/swatch",
+  "name": "@aztlan/mixins",
   "version": "0.0.1-alpha.2",
   "license": "MPLv2",
-  "main": "src/_main.scss",
+  "main": "src/_index.scss",
   "scripts": {
-    "compile": "sass src/main.scss dist/main.css && npm run filesize -- dist/main.css",
-    "minify": "postcss dist/main.css -o dist/main.min.css && npm run filesize -- dist/main.min.css",
-    "build": "npm run compile && npm run minify",
-    "prepare": "npm run build",
     "filesize": "du --apparent-size -sh ${1}",
     "lint:stylelint": "stylelint src/**/*.scss --rd --rdd --risd --color --formatter verbose",
     "lint:stylelint:fix": "npm run lint:stylelint -- --fix"
