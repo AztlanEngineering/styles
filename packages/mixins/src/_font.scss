@@ -1,4 +1,4 @@
-@use "../functions";
+@use "./functions";
 
 $default-font-class-prefix:"f" !default;
 $icons-font-class-prefix:"fi" !default;
@@ -8,7 +8,7 @@ $default-icons-name:"icons" !default;
 $default-icons-filename:"icons" !default;
 $default-icons-data-prefix:"icon" !default; //[data-icon]
 $default-icons-class-name:"icon" !default;
-$default-icons-margin:.35em !default;
+$default-icons-margin:0.35em !default;
 
 @mixin smoothing($value:light) {
   @if $value == dark {

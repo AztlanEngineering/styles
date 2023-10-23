@@ -3,6 +3,7 @@
   "version": "0.0.1-alpha.6",
   "license": "MPLv2",
   "main": "src/_index.scss",
+  "style": "src/_index.scss",
   "scripts": {
     "filesize": "du --apparent-size -sh ${1}",
     "lint:stylelint": "stylelint src/**/*.scss --rd --rdd --risd --color --formatter verbose",

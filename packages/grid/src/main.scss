@@ -1,4 +1,6 @@
-@use "@aztlan/mixins";
+// TODO understand why `main` export doesn't work
+
+@use "@aztlan/mixins/src" as mixins;
 
 // TODO Cleanup and mixins
 $sm-md:800px;
