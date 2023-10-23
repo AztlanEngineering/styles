@@ -3,38 +3,32 @@
 @use "themes";
 @use "mixins";
 
-$default-themes:(
+$themes:(
   "ui-light":themes.$light-colorscheme,
   "ui-darko":themes.$dark-colorscheme,
-);
-$default-extras:(
+) !default;
+$extras:(
   "ui-light":null,
   "ui-dark":null,
-);
+) !default;
+$nuances-prefixes:null !default;
 
-@mixin install-swatch(
-  $themes:$default-themes,
-  $extras:$default-extras,
-  $nuances-prefixes:null,
-) {
-  $themes-keys:map.keys($themes);
-  @each $theme-name, $theme-colorscheme in $themes {
-    $i: list.index($themes-keys, $theme-name);
-    $is-first: $i == 1;
+$themes-keys:map.keys($themes);
 
-    $theme-extras: map.get($extras, $theme-name);
-    @if ($is-first) {
-      @include mixins.setters-from-map($theme-colorscheme);
-    }
+@each $theme-name, $theme-colorscheme in $themes {
+  $i: list.index($themes-keys, $theme-name);
+  $is-first: $i == 1;
 
-    @include mixins.define-theme(
-      $array:$theme-colorscheme,
-      $theme-name:$theme-name,
-      $default:$is-first,
-      $extras:$theme-extras,
-      $nuances-names:$nuances-prefixes,
-    );
+  $theme-extras: map.get($extras, $theme-name);
+  @if ($is-first) {
+    @include mixins.setters-from-map($theme-colorscheme);
   }
-}
 
-@include install-swatch;
+  @include mixins.define-theme(
+    $array:$theme-colorscheme,
+    $theme-name:$theme-name,
+    $default:$is-first,
+    $extras:$theme-extras,
+    $nuances-names:$nuances-prefixes,
+  );
+}
