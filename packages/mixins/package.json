@@ -1,6 +1,6 @@
 {
   "name": "@aztlan/mixins",
-  "version": "0.0.1-alpha.6",
+  "version": "0.0.1-alpha.7",
   "license": "MPLv2",
   "main": "src/_index.scss",
   "style": "src/_index.scss",
