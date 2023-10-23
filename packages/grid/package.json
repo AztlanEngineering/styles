@@ -20,5 +20,5 @@
     "postcss-preset-env": "^9.2.0",
     "postcss-scss": "^4.0.9",
     "sass": "^1.69.4"
-  },
+  }
 }

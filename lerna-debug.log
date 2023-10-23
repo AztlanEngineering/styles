@@ -1,0 +1,19 @@
+0 silly argv {
+0 silly argv   _: [ 'version' ],
+0 silly argv   yes: true,
+0 silly argv   y: true,
+0 silly argv   m: 'auto-publish %s',
+0 silly argv   message: 'auto-publish %s',
+0 silly argv   lernaVersion: '7.4.1',
+0 silly argv   '$0': 'node_modules/.bin/lerna',
+0 silly argv   bump: 'prerelease'
+0 silly argv }
+1 notice cli v7.4.1
+2 verbose packageConfigs Resolving packages based on package.json "workspaces" configuration.
+3 verbose rootPath /home/adrian_villa/code/aztlan/styles
+4 error SyntaxError: /home/adrian_villa/code/aztlan/styles/packages/grid/package.json: Expected double-quoted property name in JSON at position 865
+4 error     at JSON.parse (<anonymous>)
+4 error     at _readFile (/home/adrian_villa/code/aztlan/styles/node_modules/jsonfile/index.js:25:16)
+4 error     at async Promise.all (index 3)
+4 error     at async createProjectGraphWithPackages (/home/adrian_villa/code/aztlan/styles/node_modules/lerna/dist/index.js:1337:18)
+4 error     at async detectProjects (/home/adrian_villa/code/aztlan/styles/node_modules/lerna/dist/index.js:1457:24)
