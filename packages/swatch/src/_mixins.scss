@@ -13,14 +13,14 @@ $nuances-prefixes: (
  * i
  */
 
-$contrast-using-dark-text:#FFF !default;
-$contrast-using-light-text:#000 !default;
+$contrast-using-dark-text:#ffffff !default;
+$contrast-using-light-text:#000000 !default;
 
 $light-nuance-lighten-by:11% !default;
 $light-nuance-desaturate-by:9% !default;
 $dark-nuance-darken-by:11% !default;
 $dark-nuance-saturate-by:9% !default;
-$treshold-contrast-nuance:.69;
+$treshold-contrast-nuance:0.69;
 
 @function dark-nuance(
   $color,
@@ -92,24 +92,29 @@ $getter-fill:"e-" !default;
   }
 }
 
-@mixin define-theme($array, $theme-name, $default:false, $extras:null, $nuances-names: $nuances-prefixes) {
-  %payload {
-    @include define-variables($array, $nuances-names);
-    @if ($extras) {
-      @each $key, $value in $extras {
-        --#{$key}: #{$value};
-      }
+@mixin define-theme-payload($array, $prefixes, $extras) {
+  @include define-variables($array, $prefixes);
+  @if ($extras) {
+    @each $key, $value in $extras {
+      --#{$key}: #{$value};
     }
   }
+}
+
+@mixin define-theme($array, $theme-name, $default:false, $extras:null, $nuances-names: null) {
+  $prefixes: if($nuances-names, $nuances-names, $nuances-prefixes);
+  @debug $default $theme-name;
   @if $default == true {
+    @debug "is-default" $theme-name;
     :root,
     .#{$theme-name} {
-      @extend %payload;
+      @include define-theme-payload($array, $prefixes, $extras);
     }
   }
   @else {
+    @debug "isnt-default" $theme-name;
     .#{$theme-name} {
-      @extend %payload;
+      @include define-theme-payload($array, $prefixes, $extras);
     }
   }
 }
@@ -142,7 +147,7 @@ $getter-fill:"e-" !default;
 //
 //
 
-@mixin getters($nuances-names: $nuances-prefixes) {
+@mixin install-getters($nuances-names: $nuances-prefixes) {
   // $variants:"","light","dark","on";
   $variants: $nuances-names;
   @each $register in $prefixes-setters {
