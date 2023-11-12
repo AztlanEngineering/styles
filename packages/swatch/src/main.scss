@@ -4,12 +4,12 @@
 @use "mixins";
 
 $themes:(
-  "ui-light":themes.$light-colorscheme,
-  "ui-dark":themes.$dark-colorscheme,
+  "light-theme":themes.$light-colorscheme,
+  "dark-theme":themes.$dark-colorscheme,
 ) !default;
 $extras:(
-  "ui-light":null,
-  "ui-dark":null,
+  "light-theme":null,
+  "dark-theme":null,
 ) !default;
 $nuances-prefixes:null !default;
 
