@@ -2,7 +2,7 @@
   "name": "@aztlan/grid",
   "version": "0.0.1-alpha.10",
   "license": "MPLv2",
-  "main": "src/_main.scss",
+  "main": "src/main.scss",
   "scripts": {
     "compile": "sass src/main.scss dist/main.css -I node_modules -I ../../node_modules && npm run filesize -- dist/main.css",
     "minify": "postcss dist/main.css -o dist/main.min.css && npm run filesize -- dist/main.min.css",
