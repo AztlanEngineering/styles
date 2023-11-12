@@ -1,6 +1,6 @@
 {
   "name": "@aztlan/styles",
-  "version": "0.0.1-alpha.0",
+  "version": "0.0.1-alpha.1",
   "license": "MPLv2",
   "private": true,
   "workspaces": [
@@ -10,9 +10,9 @@
   "scripts": {
     "release:prerelease": "./scripts/release.sh prerelease",
     "release:patch": "./scripts/release.sh patch",
-    "release:minor": "./scripts/release.sh minor",  
+    "release:minor": "./scripts/release.sh minor",
     "release:major": "./scripts/release.sh major",
-    "lerna":"lerna",
+    "lerna": "lerna",
     "test": "npm run lint:stylelint",
     "lint:stylelint": "lerna run lint:stylelint",
     "lint:stylelint:fix": "lerna run lint:stylelint:fix"
