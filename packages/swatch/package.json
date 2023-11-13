@@ -1,6 +1,6 @@
 {
   "name": "@aztlan/swatch",
-  "version": "0.0.1-alpha.11",
+  "version": "0.0.1-alpha.12",
   "license": "MPLv2",
   "main": "src/main.scss",
   "scripts": {
@@ -13,8 +13,8 @@
     "lint:stylelint:fix": "npm run lint:stylelint -- --fix"
   },
   "devDependencies": {
-    "@aztlan/postcss-config": "^0.0.1-alpha.8",
-    "@aztlan/stylelint-config": "^0.0.1-alpha.2",
+    "@aztlan/postcss-config": "^0.0.1-alpha.12",
+    "@aztlan/stylelint-config": "^0.0.1-alpha.12",
     "sass": "^1.69.4"
   }
 }
