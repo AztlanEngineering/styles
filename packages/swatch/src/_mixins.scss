@@ -60,7 +60,7 @@ $treshold-contrast-nuance:0.69;
 // Change how the setters and getters are called
 $prefix-hover:"h" !default;
 //$prefixes-setters:"x", "y", "z" !default;
-$prefixes-setters:"x", "y" !default;
+$prefixes-setters:"" !default;
 //$registry-length:5 !default;
 
 $getter-background:"b-" !default;
@@ -125,15 +125,14 @@ $getter-fill:"e-" !default;
 
 @mixin setters-from-map($array, $nuances-names: $nuances-prefixes) {
   @each $name, $colorlist in $array {
-    @each $prefix in $prefixes-setters {
-      .#{$prefix}-#{$name},
-      .#{$prefix}#{$prefix-hover}-#{$name}:focus,
-      .#{$prefix}#{$prefix-hover}-#{$name}:hover {
-        --#{$prefix}: var(--#{$name});
-        --#{map.get($nuances-names, "nuance2")}-#{$prefix}: var(--#{map.get($nuances-names, "nuance2")}-#{$name});
-        --#{map.get($nuances-names, "nuance3")}-#{$prefix}: var(--#{map.get($nuances-names, "nuance3")}-#{$name});
-        --#{map.get($nuances-names, "nuance4")}-#{$prefix}: var(--#{map.get($nuances-names, "nuance4")}-#{$name});
-      }
+
+    .#{$name},
+    .#{$prefix-hover}-#{$name}:focus,
+    .#{$prefix-hover}-#{$name}:hover {
+      --color: var(--#{$name});
+      --#{map.get($nuances-names, "nuance2")}-color: var(--#{map.get($nuances-names, "nuance2")}-#{$name});
+      --#{map.get($nuances-names, "nuance3")}-color: var(--#{map.get($nuances-names, "nuance3")}-#{$name});
+      --#{map.get($nuances-names, "nuance4")}-color: var(--#{map.get($nuances-names, "nuance4")}-#{$name});
     }
   }
 }
