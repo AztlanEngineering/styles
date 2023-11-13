@@ -1,6 +1,6 @@
 {
   "name": "@aztlan/grid",
-  "version": "0.0.1-alpha.12",
+  "version": "0.1.0",
   "license": "MPLv2",
   "main": "src/main.scss",
   "scripts": {
@@ -18,6 +18,6 @@
     "sass": "^1.69.4"
   },
   "dependencies": {
-    "@aztlan/mixins": "^0.0.1-alpha.12"
+    "@aztlan/mixins": "^0.1.0"
   }
 }
