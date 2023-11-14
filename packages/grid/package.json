@@ -1,6 +1,6 @@
 {
   "name": "@aztlan/grid",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MPLv2",
   "main": "src/main.scss",
   "scripts": {
@@ -13,11 +13,11 @@
     "lint:stylelint:fix": "npm run lint:stylelint -- --fix"
   },
   "devDependencies": {
-    "@aztlan/postcss-config": "^0.2.0-alpha.0",
-    "@aztlan/stylelint-config": "^0.2.0-alpha.0",
+    "@aztlan/postcss-config": "^0.1.1",
+    "@aztlan/stylelint-config": "^0.1.1",
     "sass": "^1.69.4"
   },
   "dependencies": {
-    "@aztlan/mixins": "^0.1.0"
+    "@aztlan/mixins": "^0.1.1"
   }
 }
