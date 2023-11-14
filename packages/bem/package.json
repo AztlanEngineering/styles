@@ -1,14 +1,10 @@
 {
   "name": "@aztlan/bem",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "license": "MPLv2",
+  "main":"index.scss",
   "scripts": {
     "lint:stylelint": "stylelint **/*.scss --rd --rdd --risd --color --formatter verbose"
-  },
-  "exports": {
-    ".": "./index.scss",
-    "./exports": "./exports.scss",
-    "./exports.scss": "./exports.scss"
   },
   "devDependencies": {
     "@aztlan/stylelint-config": "^0.2.1"
