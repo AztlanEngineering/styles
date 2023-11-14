@@ -4,8 +4,9 @@
   "license": "MPLv2",
   "private": true,
   "workspaces": [
-    "packages/*",
-    "apps/*"
+    "apps/*",
+    "config/*",
+    "packages/*"
   ],
   "scripts": {
     "release:prerelease": "./scripts/release.sh prerelease",
