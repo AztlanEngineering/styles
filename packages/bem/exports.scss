@@ -1,0 +1,31 @@
+@use "index" as *;
+// The :export block makes the variables available to Javascript
+// https://css-tricks.com/getting-javascript-to-talk-to-css-and-sass/
+
+/* stylelint-disable property-no-unknown, max-line-length, property-case -- To allow the export rule */
+:export {
+  // Bear in mind the following will be JS variables. This is why we use camelCase.
+  base: ds;
+  elementContent: $element-content;
+  elementHeading: $element-heading;
+  elementItem: $element-item;
+  elementSection: $element-section;
+  elementSubtitle: $element-subtitle;
+  modifierActive: $modifier-active;
+  modifierAnimated: $modifier-animated;
+  modifierAttached: $modifier-attached;
+  modifierBlur: $modifier-blur;
+  modifierClear: $modifier-clear;
+  modifierCompact: $modifier-compact;
+  modifierGhost: $modifier-ghost;
+  modifierGradient: $modifier-gradient;
+  modifierImage: $modifier-image;
+  modifierOpen: $modifier-open;
+  modifierSimple: $modifier-simple;
+  modifierSpaced: $modifier-spaced;
+  modifierUnderlined: $modifier-underlined;
+  wrapperGroup: $wrapper-group;
+}
+
+/* stylelint-enable */
+

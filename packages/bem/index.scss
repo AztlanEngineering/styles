@@ -1,0 +1,27 @@
+$namespace-base-class-name:ds !default;
+
+$element-item:item;
+$element-content:content;
+$element-heading:heading;
+$element-subtitle:subtitle;
+$element-item:item;
+$element-section:section;
+
+$modifier-active:active;
+$modifier-attached:attached;
+$modifier-animated:animated;
+$modifier-blur:blur;
+$modifier-clear:clear;
+$modifier-compact:compact;
+$modifier-image:image;
+$modifier-ghost:ghost;
+$modifier-open:open;
+$modifier-simple:simple;
+$modifier-spaced:spaced;
+$modifier-gradient:gradient;
+$modifier-underlined:underlined;
+
+$wrapper-group:group;
+
+// Simplified exports ( as namespace.$class )
+$base:$namespace-base-class-name !default;
