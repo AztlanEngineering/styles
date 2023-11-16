@@ -1,6 +1,6 @@
 {
   "name": "@aztlan/bem",
-  "version": "0.2.5",
+  "version": "0.2.4",
   "license": "MPLv2",
   "main": "index.scss",
   "scripts": {
