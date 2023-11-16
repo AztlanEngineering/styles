@@ -1,58 +1,49 @@
-// Wheel colors
-$base-red:#f8333c !default;
-$base-orange:#f46036 !default;
-$base-yellow:#ffbf00 !default;
-$base-olive:#a1c181 !default;
-$base-green:#44af69 !default;
-$base-indigo:#43aa8b !default;
-$base-azure:#03c9bc !default;
-$base-blue:#1f4684 !default;
-$base-violet:#9381ff !default;
-$base-pink:#e56399 !default;
-
-// Brand
-$base-primary:#213a8f !default;
-$base-secondary:#ff947a !default;
-$base-accent1:#32f9e1 !default;
-$base-accent2:#ee4266 !default;
-$base-accent3:#fc60a8 !default;
-
-// Colorscheme
+$monochrome-0:#000000;
+$monochrome-1:#262628;
+$monochrome-2:#4c4d53;
+$monochrome-3:#64656b;
+$monochrome-4:#6d6f73;
+$monochrome-5:#93959b;
+$monochrome-6:#abadb3;
+$monochrome-7:#c3c5cb;
+$monochrome-8:#dbdde3;
+$monochrome-9:#f4f7fd;
+$monochrome-10:#ffffff;
 
 $colorscheme:(
-  // Wheel
-  "red":[$base-red null null null],
-  "orange":[$base-orange null null null],
-  "yellow":[$base-yellow null null null],
-  "olive":[$base-olive null null null],
-  "green":[$base-green null null null],
-  "indigo":[$base-indigo null null null],
-  "azure":[$base-azure null null null],
-  "blue":[$base-blue null null null],
-  "violet":[$base-violet null null null],
-  "pink":[$base-pink null null null],
-  // Brand
+  "white":[$monochrome-9 $monochrome-8 $monochrome-10 $monochrome-0],
+  "pearl":[$monochrome-7 $monochrome-6 $monochrome-8 $monochrome-0],
+  "grey":[$monochrome-5 $monochrome-4 $monochrome-6 $monochrome-10],
+  "anchor":[$monochrome-3 $monochrome-2 $monochrome-4 $monochrome-10],
+  "black":[$monochrome-1 $monochrome-0 $monochrome-2 $monochrome-10],
+  "heading":[$monochrome-1 $monochrome-0 $monochrome-2 $monochrome-10],
+  "paragraph":[$monochrome-3 $monochrome-2 $monochrome-5 $monochrome-10],
+  "subtitle":[$monochrome-3 $monochrome-2 $monochrome-4 $monochrome-10],
+  "metadata":[$monochrome-6 $monochrome-5 $monochrome-7 $monochrome-10],
+  "disabled": [$monochrome-7 $monochrome-6 $monochrome-8 $monochrome-9],
+  "highlighted": [#8b6dff #6d16fb #d1c5ff $monochrome-10],
+  "shadow": [$monochrome-7 $monochrome-6 $monochrome-8 $monochrome-9],
+  "interactive-icons":[$monochrome-1 $monochrome-0 $monochrome-2 $monochrome-10],
+  "link":[#003cd7 #356bf8 #638eff $monochrome-10],
+  "transparent":[transparent transparent transparent var(--paragraph) ],
+  "main":[#c6b8fe #8b6dff #e9e4ff #150521],
+  "main-80": [#c6b8fecc #8b6dffcc #e9e4ffcc #150521cc],
+  "main-50": [#c6b8fe80 #8b6dff80 #e9e4ff80 #15052180],
+  "main2": [#e4e8f3 #c6b8fe #f4f7ff #150521],
+  "interactive":[#8b6dff #6d16fb #d1c5ff $monochrome-10],
+  "background-far":[$monochrome-10 $monochrome-9 $monochrome-10 $monochrome-1],
+  "background-near":[$monochrome-9 $monochrome-8 $monochrome-10 $monochrome-1],
+  "background-cards":[$monochrome-10 #e0e4f2 $monochrome-10 $monochrome-1],
+  "background-cards-80":[#ffffffCC #e0e4f2cc #ffffffcc #262628cc],
+  "background-cards-50":[#ffffff80 #e0e4f280 #ffffff80 #26262880],
+  "background-inputs":[#ffffff80 #e0e4f280 #ffffff80 #26262880],
+  "background-mesh":[#F4F7FD #c0c6e2 $monochrome-10 $monochrome-1],
+  "error":[#ff3b30 #e52217 #ff7e77 $monochrome-10],
+  "success":[#28cd41 #00b21b #6bd97b $monochrome-10],
+  "blocked":[#ffac70 #ed8a41 #ffc8a0 $monochrome-10],
+  "backlog":[#d2d3d9 #bdbfc5 #dfe2ec $monochrome-10],
+  "in-progress":[#7cb5fb #2575da #9ec9ff $monochrome-10],
+  "in-review":[#c099fe #a472f6 #cfb6f8 $monochrome-10],
+  "requested":[#f5d14e #ebbb10 #fee896 $monochrome-10],
+  "completed":[#84d9ba #6acfab #ade5d1 $monochrome-10],
 );
-
-
-/*
-$colorscheme-light-shadow-color:monochrome.$base-grey;
-$colorscheme-light-extras:(
-  "shadow":.2em .2em .5em rgba(
-    red($colorscheme-light-shadow-color),
-    blue($colorscheme-light-shadow-color),
-    green($colorscheme-light-shadow-color),
-    .8
-  ),
-);
-
-$colorscheme-iceberg-shadow-color:monochrome.$base-grey;
-$colorscheme-iceberg-extras:(
-  "shadow-hover":0 0 4em rgba(
-    red($colorscheme-iceberg-shadow-color),
-    blue($colorscheme-iceberg-shadow-color),
-    green($colorscheme-iceberg-shadow-color),
-    .2
-  ),
-);
-*/
