@@ -1,66 +1,49 @@
-// Wheel colors
-$base-red:#fe011c !default;
-$base-orange:#f46036 !default;
-$base-yellow:#ffbf00 !default;
-$base-olive:#a1c181 !default;
-$base-green:#44af69 !default;
-$base-indigo:#43aa8b !default;
-$base-azure:#03c9bc !default;
-$base-blue:#1f4684 !default;
-$base-violet:#9381ff !default;
-$base-pink:#e56399 !default;
-
-// Brand
-$base-primary:#213a8f !default;
-$base-secondary:#ff947a !default;
-$base-accent1:#32f9e1 !default;
-$base-accent2:#ee4266 !default;
-$base-accent3:#fc60a8 !default;
-
-// Colorscheme
+$monochrome-0:#000000;
+$monochrome-1:#262628;
+$monochrome-2:#4c4d53;
+$monochrome-3:#64656b;
+$monochrome-4:#6d6f73;
+$monochrome-5:#93959b;
+$monochrome-6:#abadb3;
+$monochrome-7:#c3c5cb;
+$monochrome-8:#dbdde3;
+$monochrome-9:#f4f7fd;
+$monochrome-10:#ffffff;
 
 $colorscheme:(
-  // Wheel
-  "red":[$base-red null null null],
-  "orange":[$base-orange null null null],
-  "yellow":[$base-yellow null null null],
-  "olive":[$base-olive null null null],
-  "green":[$base-green null null null],
-  "indigo":[$base-indigo null null null],
-  "azure":[$base-azure null null null],
-  "blue":[$base-blue null null null],
-  "violet":[$base-violet null null null],
-  "pink":[$base-pink null null null],
-  // Brand
-  "primary":[$base-primary null null null],
-  "secondary":[$base-secondary null null null],
-  "accent1":[$base-accent1 null null null],
-  "accent2":[$base-accent2 null null null],
-  "accent3":[$base-accent3 null null null],
-  // Modals
-  //"success":[var(--green) var(--dark-green) var(--light-green) var(--on-green)],
-  //"warning":[var(--orange) var(--dark-orange) var(--light-orange) var(--on-orange)],
+  "white":[$monochrome-9 $monochrome-8 $monochrome-10 $monochrome-0],
+  "pearl":[$monochrome-7 $monochrome-6 $monochrome-8 $monochrome-0],
+  "grey":[$monochrome-5 $monochrome-4 $monochrome-6 $monochrome-10],
+  "anchor":[$monochrome-3 $monochrome-2 $monochrome-4 $monochrome-10],
+  "black":[$monochrome-1 $monochrome-0 $monochrome-2 $monochrome-10],
+  "heading":[$monochrome-9 $monochrome-10 $monochrome-8 $monochrome-0],
+  "paragraph":[$monochrome-7 $monochrome-8 $monochrome-6 $monochrome-0],
+  "subtitle":[$monochrome-8 $monochrome-9 $monochrome-7 $monochrome-0],
+  "metadata":[$monochrome-3 $monochrome-4 $monochrome-2 $monochrome-0],
+  "disabled":[$monochrome-3 $monochrome-4 $monochrome-2 $monochrome-1],
+  "highlighted":[#9276ff #b9a7ff #5f29b8 $monochrome-0],
+  "shadow": [$monochrome-3 $monochrome-4 $monochrome-2 $monochrome-1],
+  "interactive-icons":[$monochrome-9 $monochrome-10 $monochrome-8 $monochrome-0],
+  "link":[#9cb8ff #7ea2ff #4f80ff $monochrome-0],
+  "transparent":[transparent transparent transparent var(--paragraph) ],
+  "main":[#8b6dff #6d16fb #d1c5ff #f3f0ff],
+  "main-80":[#8b6dffcc #6d16fbcc #d1c5ffcc #f3f0ffcc],
+  "main-50":[#8b6dff80 #6d16fb80 #d1c5ff80 #f3f0ff80],
+  "main2":[#3e3743 #afa1e5 #f4f7ff #f3f0ff],
+  "interactive":[#8b6dff #6d16fb #d1c5ff $monochrome-10],
+  "background-far":[#191720 #3d3346 $monochrome-0 $monochrome-10],
+  "background-near":[$monochrome-2 $monochrome-3 $monochrome-1 $monochrome-10],
+  "background-cards":[#312c35 #3e3743 #2b2133 $monochrome-10],
+  "background-cards-80":[#312c35cc #3e3743cc #2b2133cc #ffffffcc],
+  "background-cards-50":[#312c3580 #3e374380 #2b213380 #ffffff80],
+  "background-inputs":[#312c3580 #3e374380 #2b213380 #ffffff80],
+  "background-mesh":[#242131 #2e2a3c #191720 $monochrome-10],
+  "error":[#ff5c53 #ff7b73 #b54d47 $monochrome-0],
+  "success":[#40dd58 #8af59a #3ca14b $monochrome-0],
+  "blocked":[#fea667 #ffc295 #ab622e $monochrome-0],
+  "backlog":[#c5c5c5 #e6e6e6 #797b80 $monochrome-0],
+  "in-progress":[#6bacff #85bbff #336ab0 $monochrome-0],
+  "in-review":[#b082fa #c09aff #784bc1 $monochrome-0],
+  "requested":[#f6d24d #ffe589 #9e8425 $monochrome-0],
+  "completed":[#84d9ba #6acfab #ade5d1 $monochrome-10],
 );
-
-
-/*
-$colorscheme-light-shadow-color:monochrome.$base-grey;
-$colorscheme-light-extras:(
-  "shadow":.2em .2em .5em rgba(
-    red($colorscheme-light-shadow-color),
-    blue($colorscheme-light-shadow-color),
-    green($colorscheme-light-shadow-color),
-    .8
-  ),
-);
-
-$colorscheme-iceberg-shadow-color:monochrome.$base-grey;
-$colorscheme-iceberg-extras:(
-  "shadow-hover":0 0 4em rgba(
-    red($colorscheme-iceberg-shadow-color),
-    blue($colorscheme-iceberg-shadow-color),
-    green($colorscheme-iceberg-shadow-color),
-    .2
-  ),
-);
-*/
