@@ -1,12 +1,12 @@
 {
   "name": "@aztlan/bem",
-  "version": "0.2.6",
+  "version": "0.3.0",
   "license": "MPLv2",
   "main": "index.scss",
   "scripts": {
     "lint:stylelint": "stylelint **/*.scss --rd --rdd --risd --color --formatter verbose"
   },
   "devDependencies": {
-    "@aztlan/stylelint-config": "^0.2.1"
+    "@aztlan/stylelint-config": "^0.3.0"
   }
 }
