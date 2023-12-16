@@ -19,7 +19,7 @@
     "lint:stylelint:fix": "lerna run lint:stylelint:fix"
   },
   "devDependencies": {
-    "lerna": "^7.4.1",
+    "lerna": "^8.0.1",
     "jsonlint": "^1.6.3"
   }
 }
