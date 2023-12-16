@@ -15,6 +15,6 @@
   "devDependencies": {
     "@aztlan/postcss-config": "^0.2.1",
     "@aztlan/stylelint-config": "^0.2.1",
-    "sass": "^1.69.4"
+    "sass": "^1.69.5"
   }
 }
