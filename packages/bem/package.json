@@ -4,8 +4,10 @@
   "license": "MPLv2",
   "style": "index.scss",
   "main": "exports.module.scss",
+  "types": "exports.module.scss.d.ts",
   "scripts": {
-    "lint:stylelint": "stylelint **/*.scss --rd --rdd --risd --color --formatter verbose"
+    "lint:stylelint": "stylelint **/*.scss --rd --rdd --risd --color --formatter verbose",
+    "prepublishOnly": "./generate-types.js"
   },
   "devDependencies": {
     "@aztlan/stylelint-config": "^0.3.0"
