@@ -2,7 +2,8 @@
   "name": "@aztlan/bem",
   "version": "0.3.1",
   "license": "MPLv2",
-  "main": "index.scss",
+  "style":"index.scss",
+  "main":"exports.module.scss",
   "scripts": {
     "lint:stylelint": "stylelint **/*.scss --rd --rdd --risd --color --formatter verbose"
   },
