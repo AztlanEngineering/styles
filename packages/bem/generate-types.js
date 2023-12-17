@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const fs = require('fs');
 
+const moduleName = '@aztlan/bem';
 const scssFilePath = 'exports.module.scss'; // Adjust this path accordingly
 const outputFilePath = 'exports.module.scss.d.ts'; // Adjust the output path
 
@@ -18,11 +19,11 @@ lines.forEach((line, index) => {
     if (trimmedLine && !trimmedLine.startsWith('//') && trimmedLine.includes(':')) {
       const [variable,] = trimmedLine.split(':');
       const variableName = variable.trim();
-      typeDeclarations.push(`  "${variableName}": string;`);
+      typeDeclarations.push(`  export const ${variableName}: string;`);
     }
   }
 });
 
-const tsDeclaration = `declare module '${scssFilePath}' {\n${typeDeclarations.join('\n')}\n}\n`;
+const tsDeclaration = `declare module '${moduleName}' {\n${typeDeclarations.join('\n')}\n}\n`;
 
 fs.writeFileSync(outputFilePath, tsDeclaration, 'utf8');
