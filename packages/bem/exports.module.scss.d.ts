@@ -15,7 +15,9 @@ declare module '@aztlan/bem' {
   export const modifierGhost: string;
   export const modifierGradient: string;
   export const modifierImage: string;
+  export const modifierNext: string;
   export const modifierOpen: string;
+  export const modifierPrevious: string;
   export const modifierSimple: string;
   export const modifierSpaced: string;
   export const modifierUnderlined: string;
