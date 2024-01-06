@@ -1,6 +1,6 @@
 {
   "name": "@aztlan/mixins",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "license": "MPLv2",
   "main": "src/_index.scss",
   "style": "src/_index.scss",
@@ -10,8 +10,8 @@
     "lint:stylelint:fix": "npm run lint:stylelint -- --fix"
   },
   "devDependencies": {
-    "@aztlan/postcss-config": "^0.5.0",
-    "@aztlan/stylelint-config": "^0.5.0",
+    "@aztlan/postcss-config": "^0.6.0",
+    "@aztlan/stylelint-config": "^0.6.0",
     "sass": "^1.69.7"
   }
 }
