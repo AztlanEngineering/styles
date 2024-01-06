@@ -1,6 +1,6 @@
 {
   "name": "@aztlan/bem",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "license": "MPLv2",
   "style": "index.scss",
   "main": "exports.module.scss",
@@ -10,6 +10,6 @@
     "prepublishOnly": "./generate-types.js"
   },
   "devDependencies": {
-    "@aztlan/stylelint-config": "^0.4.0"
+    "@aztlan/stylelint-config": "^0.5.0"
   }
 }
