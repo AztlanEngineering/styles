@@ -5,10 +5,12 @@
 /* stylelint-disable property-no-unknown, max-line-length, property-case -- To allow the export rule */
 :export {
   // Bear in mind the following will be JS variables. This is why we use camelCase.
-  base: ds;
+  base: ui;
   elementContent: $element-content;
   elementHeading: $element-heading;
   elementItem: $element-item;
+  elementList: $element-list;
+  elementNavigation: $element-navigation;
   elementSection: $element-section;
   elementSubtitle: $element-subtitle;
   modifierActive: $modifier-active;

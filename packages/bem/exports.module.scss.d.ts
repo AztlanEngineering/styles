@@ -3,6 +3,8 @@ declare module '@aztlan/bem' {
   export const elementContent: string;
   export const elementHeading: string;
   export const elementItem: string;
+  export const elementList: string;
+  export const elementNavigation: string;
   export const elementSection: string;
   export const elementSubtitle: string;
   export const modifierActive: string;

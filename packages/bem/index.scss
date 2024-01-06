@@ -1,11 +1,12 @@
-$namespace-base-class-name:ds !default;
+$namespace-base-class-name:ui !default;
 
-$element-item:item;
 $element-content:content;
 $element-heading:heading;
-$element-subtitle:subtitle;
 $element-item:item;
+$element-list:list;
+$element-navigation:navigation;
 $element-section:section;
+$element-subtitle:subtitle;
 
 $modifier-active:active;
 $modifier-animated:animated;
