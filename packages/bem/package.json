@@ -1,6 +1,6 @@
 {
   "name": "@aztlan/bem",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "license": "MPLv2",
   "style": "index.scss",
   "main": "index.js",
@@ -13,7 +13,7 @@
     "prepublishOnly": "npm run compile:ts && npm run compile:types"
   },
   "devDependencies": {
-    "@aztlan/stylelint-config": "^0.6.0",
+    "@aztlan/stylelint-config": "^0.7.0",
     "typescript": "^5.3.3"
   },
   "dependencies": {
