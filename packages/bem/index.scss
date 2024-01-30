@@ -1,4 +1,4 @@
-$namespace-base-class-name:ui !default;
+$_namespace-base-class-name:ui !default;
 
 $element-content:content;
 $element-heading:heading;
@@ -28,4 +28,4 @@ $modifier-underlined:underlined;
 $wrapper-group:group;
 
 // Simplified exports ( as namespace.$class )
-$base:$namespace-base-class-name !default;
+$base:$_namespace-base-class-name !default;
