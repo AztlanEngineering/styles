@@ -4,7 +4,7 @@
   "license": "MPLv2",
   "main": "index.js",
   "dependencies": {
-    "stylelint": "^16.1.0",
+    "stylelint": "^16.2.0",
     "stylelint-config-palantir": "^6.0.1"
   }
 }
