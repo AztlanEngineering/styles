@@ -1,6 +1,6 @@
 {
   "name": "@aztlan/postcss-config",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "license": "MPLv2",
   "main": "index.js",
   "devDependencies": {
