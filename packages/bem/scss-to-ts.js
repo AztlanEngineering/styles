@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+/**
+ * Converts SCSS variables to a TypeScript file.
+ */
 const fs = require('fs').promises;
 const sassVars = require('get-sass-vars');
 
