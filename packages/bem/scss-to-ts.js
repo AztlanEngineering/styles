@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import { promises as fs } from 'fs';
-import sassVars from 'get-sass-vars';
+const fs = require('fs').promises;
+const sassVars = require('get-sass-vars');
 
 if (process.argv.length < 4) {
   console.error('Usage: node scss-to-ts.js <input-scss-file> <output-ts-file>');
@@ -15,11 +15,10 @@ const inputFilePath = process.argv[2];
 const outputFilePath = process.argv[3];
 
 (async () => {
-	const css = await fs.readFile(inputFilePath, 'utf-8');
-	const json = await sassVars(css);
-	//console.log(json);
+  const css = await fs.readFile(inputFilePath, 'utf-8');
+  const json = await sassVars(css);
   
-  await fs.writeFile(outputFilePath, 'export default {\n');
+  await fs.writeFile(outputFilePath, 'module.exports = {\n');
 
   for (const key in json) {
     if (key.startsWith('$_')) {
@@ -34,5 +33,5 @@ const outputFilePath = process.argv[3];
   }
 
   await fs.appendFile(outputFilePath, '};\n');
-
 })();
+

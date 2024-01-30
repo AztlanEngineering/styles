@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   elementContent: "content",
   elementHeading: "heading",
   elementItem: "item",
