@@ -17,5 +17,8 @@
   },
   "dependencies": {
     "get-sass-vars": "^4.0.2"
+  },
+  "stylelint": {   
+    "extends": "@aztlan/stylelint-config"  
   }
 }

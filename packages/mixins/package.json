@@ -13,5 +13,8 @@
     "@aztlan/postcss-config": "^0.9.0",
     "@aztlan/stylelint-config": "^0.9.0",
     "sass": "^1.70.0"
+  },
+  "stylelint": {   
+    "extends": "@aztlan/stylelint-config"  
   }
 }

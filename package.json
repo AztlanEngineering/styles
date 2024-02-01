@@ -9,15 +9,16 @@
     "packages/*"
   ],
   "scripts": {
-    "release:prerelease": "./scripts/release.sh prerelease",
-    "release:patch": "./scripts/release.sh patch",
-    "release:minor": "./scripts/release.sh minor",
-    "release:major": "./scripts/release.sh major",
+    "build": "lerna run build --parallel",
     "lerna": "lerna",
-    "ncu": "lerna exec 'ncu -i' --concurrency 1",
-    "test": "npm run lint:stylelint",
     "lint:stylelint": "lerna run lint:stylelint",
-    "lint:stylelint:fix": "lerna run lint:stylelint:fix"
+    "lint:stylelint:fix": "lerna run lint:stylelint:fix",
+    "ncu": "lerna exec 'ncu -i' --concurrency 1",
+    "release:major": "./scripts/release.sh major",
+    "release:minor": "./scripts/release.sh minor",
+    "release:patch": "./scripts/release.sh patch",
+    "release:prerelease": "./scripts/release.sh prerelease",
+    "test": "npm run lint:stylelint"
   },
   "devDependencies": {
     "lerna": "^8.0.1",
