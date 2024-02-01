@@ -1,6 +1,6 @@
 {
   "name": "@aztlan/grid",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "license": "MPLv2",
   "main": "src/main.scss",
   "scripts": {
@@ -18,9 +18,9 @@
     "sass": "^1.70.0"
   },
   "dependencies": {
-    "@aztlan/mixins": "^0.9.0"
+    "@aztlan/mixins": "^0.9.1"
   },
-  "stylelint": {   
-    "extends": "@aztlan/stylelint-config"  
+  "stylelint": {
+    "extends": "@aztlan/stylelint-config"
   }
 }

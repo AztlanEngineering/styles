@@ -1,6 +1,6 @@
 {
   "name": "@aztlan/bem",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "license": "MPLv2",
   "style": "index.scss",
   "main": "index.js",
@@ -18,7 +18,7 @@
   "dependencies": {
     "get-sass-vars": "^4.0.2"
   },
-  "stylelint": {   
-    "extends": "@aztlan/stylelint-config"  
+  "stylelint": {
+    "extends": "@aztlan/stylelint-config"
   }
 }

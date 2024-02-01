@@ -1,6 +1,6 @@
 {
   "name": "@aztlan/swatch",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "license": "MPLv2",
   "style": "src/main.scss",
   "main": "src/main.scss",
@@ -18,7 +18,7 @@
     "@aztlan/stylelint-config": "^0.9.0",
     "sass": "^1.70.0"
   },
-  "stylelint": {   
-    "extends": "@aztlan/stylelint-config"  
+  "stylelint": {
+    "extends": "@aztlan/stylelint-config"
   }
 }
