@@ -3,8 +3,8 @@
 @use "@aztlan/mixins/src" as mixins;
 
 // TODO Cleanup and mixins
-$sm-md:801px;
-$md-lg:1400px;
+$sm-md:801px !default;
+$md-lg:1400px !default;
 
 
 /* The following variables can be configured when using the library */

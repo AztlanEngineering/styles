@@ -16,6 +16,7 @@ module.exports = {
   modifierGhost: "ghost",
   modifierGradient: "gradient",
   modifierImage: "image",
+  modifierFixed: "fixed",
   modifierNext: "next",
   modifierOpen: "open",
   modifierPrevious: "previous",

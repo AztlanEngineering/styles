@@ -15,6 +15,7 @@ export let modifierError: string;
 export let modifierGhost: string;
 export let modifierGradient: string;
 export let modifierImage: string;
+export let modifierFixed: string;
 export let modifierNext: string;
 export let modifierOpen: string;
 export let modifierPrevious: string;
