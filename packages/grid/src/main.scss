@@ -42,15 +42,6 @@ $manual-column-width:
   )
 );
 
-@mixin apply-default-columns() {
-  --#{$default-columns-property}: #{$default-columns};
-  @include mixins.media($from:$sm-md) {
-    :root {
-      --#{$default-columns-property}: #{$md-columns};
-    }
-  }
-}
-
 @include mixins.media($from:$sm-md) {
   :root {
     --#{$default-columns-property}: #{$md-columns};
@@ -64,15 +55,35 @@ $manual-column-width:
   --#{$default-gap-property}: #{$default-gap};
 }
 
+/**
+ * Used for any grid container. What this does is that is passes
+ * the current grid columns to the children. This is useful for
+ * subgrids.
+ */
 .grid {
   display: grid;
   gap: var(--#{$default-gap-property});
   grid-template-columns: repeat(var(--#{$default-columns-property}), 1fr);
 }
 
+/**
+ * Used for elements that need to span the whole grid or subgrid
+ */
 .container {
   grid-column: 1/-1;
 }
+
+/**
+ * Used for elements that need the default grid columns number
+ * For instance, fixed elements
+ */
+.default-columns {
+  --#{$default-columns-property}: #{$default-columns};
+  @include mixins.media($from:$sm-md) {
+    --#{$default-columns-property}: #{$md-columns};
+  }
+}
+
 
 .section {
   &.padded {
