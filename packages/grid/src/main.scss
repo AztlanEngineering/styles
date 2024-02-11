@@ -43,7 +43,7 @@ $manual-column-width:
 );
 
 @mixin apply-default-columns() {
-  --#{$default-columns-property}: #{$columns};
+  --#{$default-columns-property}: #{$default-columns};
   @include mixins.media($from:$sm-md) {
     :root {
       --#{$default-columns-property}: #{$md-columns};
