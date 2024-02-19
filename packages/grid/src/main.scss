@@ -130,3 +130,18 @@ $manual-column-width:
   }
 }
 
+$not-class: #{$default-class-prefix}#{$default-span-class}-0;
+
+@include mixins.media($from:$sm-md) {
+  .#{$md-class-prefix}#{$default-span-class}-0 {
+    display: none;
+  }
+  [class^="#{$default-class-prefix}#{$default-span-class}"]:not(.#{$not-class}) {
+    display: unset;
+  }
+}
+
+.#{$default-class-prefix}#{$default-span-class}-0 {
+  display: none;
+}
+
