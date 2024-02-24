@@ -1,6 +1,6 @@
 {
   "name": "@aztlan/swatch",
-  "version": "0.9.1",
+  "version": "0.9.8",
   "license": "MPLv2",
   "style": "src/main.scss",
   "main": "src/main.scss",
